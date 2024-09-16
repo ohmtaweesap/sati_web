@@ -1,19 +1,22 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "node --env-file .env.production server.js",
+    "dev": "nodemon --env-file .env.development server.js "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.0",
-    "nodemon": "^3.1.4"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-slow-down": "^2.0.3",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.3"
   }
 }
