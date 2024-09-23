@@ -8,6 +8,10 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  text-align: center;
+}
+
 .App {
   display: flex;
   flex: 1;
