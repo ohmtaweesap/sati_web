@@ -67,6 +67,7 @@ select {
 .Row {
   display: flex;
   flex-direction: row;
+  gap: 10px;
 }
 
 button:disabled,
@@ -103,11 +104,16 @@ button[disabled] {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-padding {
+  padding: 2px;
+}
+
+option {
+  font-weight: normal;
+  display: block;
+  padding-block-start: 0px;
+  padding-block-end: 1px;
+  min-block-size: 1.2em;
+  padding-inline: 2px;
+  white-space: nowrap;
 }
