@@ -29,8 +29,8 @@ const Registration = () => {
 
   return (
     <>
-      <section id="header">
-        <div className='header-padding'>
+      <section className='header-padding' id="header">
+        <div>
           <Flex gap="middle" vertical align={'center'}>
             <fieldset>
               <Flex gap="middle" vertical align={'center'}>
@@ -48,7 +48,7 @@ const Registration = () => {
         </div>
       </section>
       <section id="body">
-        <div className='header-padding'>
+        <div>
           {form}
         </div>
       </section>
