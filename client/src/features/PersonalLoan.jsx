@@ -11,22 +11,72 @@ const PersonalLoan = () => {
 
 
 
+
+
+  const initDay = () => {
+    var html = <option value='' selected='selected'>โปรดระบุ</option>;
+    const item = [html];
+
+    for (let i = 1; i <= 31; i++){
+      item.push(<option value={i}>{i}</option>)
+    };
+    return item;
+  }
+
+  const initMonth = () => {
+    var html = <option value='' selected='selected'>โปรดระบุ</option>;
+    const item = [html];
+
+    for (let i = 1; i <= 12; i++){
+      item.push(<option value={i}>{i}</option>)
+    };
+    return item;
+  }
+
   const initYear = () => {
     let date = new Date();
     var thaiYear = date.getFullYear() + 543;
     var maxAge = thaiYear - 60;
     var minAge = thaiYear - 20;
-    var html = "<option value='' selected='selected'>โปรดระบุ</option>";
-    let item = [];
+    var html = <option value='' selected='selected'>โปรดระบุ</option>;
+    const item = [html];
 
     for (let i = maxAge; i <= minAge; i++){
-      var opt = document.createElement('option');
-      opt.value = i;
-      opt.innerHTML = i;
-      item.push(opt);
-    }
+      item.push(<option value={i}>{i}</option>)
+    };
     return item;
   };
+
+  const initWorkYear = () => {
+    var html = <option value='' selected='selected'>โปรดระบุ</option>;
+    const item = [html];
+
+    for (let i = 1; i <= 40; i++){
+      item.push(<option value={i}>{i}</option>)
+    };
+    return item;
+  }
+
+  const initWorkMonth = () => {
+    var html = <option value='' selected='selected'>โปรดระบุ</option>;
+    const item = [html];
+
+    for (let i = 0; i <= 11; i++){
+      item.push(<option value={i}>{i}</option>)
+    };
+    return item;
+  }
+
+  const initWorkSalary = () => {
+    var html = <option value='' selected='selected'>โปรดระบุ</option>;
+    const item = [html];
+
+    for (let i = 0; i <= 11; i++){
+      item.push(<option value={i}>{i}</option>)
+    };
+    return item;
+  }
+
 
   return (
       <div className="App">
@@ -40,9 +90,9 @@ const PersonalLoan = () => {
               <div className='borrower'>
                 <h3>ผู้กู้ 1</h3>
               </div>
-              <label>
+              <p>
                 คำนำหน้า <sup>*</sup>
-              </label>
+              </p>
               <select value={title} onChange={ (e) => setTitle(e.target.value)}>
                 <option value="Mr">นาย</option>
                 <option value="Mrs">นาง</option>
@@ -50,105 +100,89 @@ const PersonalLoan = () => {
               </select>
             </div>
             <div className='Field'>
-              <label>
+              <p>
                 ชื่อ <sup>*</sup>
-              </label>
+              </p>
               <input value={firstName} onChange={ (e) => setFirstName(e.target.value)} placeholder='ชื่อ'></input>
             </div>
             <div className='Field'>
-              <label>
+              <p>
                 นามสกุล <sup>*</sup>
-              </label>
+              </p>
               <input value={lastName} onChange={ (e) => setLastName(e.target.value)} placeholder='นามสกุล'></input>
             </div>
             <div className='Field'>
-              <label>
+              <p>
                 เลขบัตรประชาชน 13 หลัก <sup>*</sup>
-              </label>
+              </p>
               <input value={thaiIdNumber} onChange={ (e) => setThaiIdNumber(e.target.value)} placeholder='เลขบัตรประชาชน 13 หลัก'></input>
             </div>
             <div className='Field'>
-              <label>
+              <p>
                 เบอร์โทรศัพท์ <sup>*</sup>
-              </label>
+              </p>
               <input value={phoneNumber} onChange={ (e) => setPhoneNumber(e.target.value)} placeholder='เบอร์โทรศัพท์'></input>
             </div>
             <div className='Field'>
-              <label>
+              <p>
                 วัน-เดือน-ปี เกิด <sup>*</sup>
-              </label>
+              </p>
               <div className='Row'>
                 <select>
-                  <option value selected="selected">โปรดระบุ</option>
-                  <option value="01">1</option>
-                  <option value="02">2</option>
-                  <option value="03">3</option>
-                  <option value="04">4</option>
-                  <option value="05">5</option>
-                  <option value="06">6</option>
-                  <option value="07">7</option>
-                  <option value="08">8</option>
-                  <option value="09">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
+                  {initDay()}
                 </select>
                 <p>/</p>
                 <select>
-                  <option value selected="selected">โปรดระบุ</option>
-                  <option value="01">1</option>
-                  <option value="02">2</option>
-                  <option value="03">3</option>
-                  <option value="04">4</option>
-                  <option value="05">5</option>
-                  <option value="06">6</option>
-                  <option value="07">7</option>
-                  <option value="08">8</option>
-                  <option value="09">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
+                  {initMonth()}
                 </select>
                 <p>/</p>
                 <select>
-                  <option value="" selected="selected">โปรดระบุ</option>
                   {initYear()}
                 </select>
               </div>
-              {/* <div>
-                <ThaiDatePicker value={selectedDate} 
-                  onChange={handleDatePickerChange} 
-                  inputProps={{
-                    style: {
-                      width: "50%",
-                    },
-                    readOnly: true,
-                  }}
-                  reactDatePickerProps={{
-                    showIcon: false,
-                    openToDate: new Date(),
-                  }}>
-                </ThaiDatePicker>
-              </div> */}
+            </div>
+            <div className='Field'>
+              <p>
+                อายุงาน (งานปัจจุบัน) <sup>*</sup>
+              </p>
+              <div className='Row'>
+                <label> ปี: </label>
+                <select>
+                  {initWorkYear()}
+                </select>
+                <p>/</p>
+                <p> เดือน: </p>
+                <select>
+                  {initWorkMonth()}
+                </select>
+              </div>
+            </div>
+            <div>
+            <p>
+                เงินเดือน (ฐานเงินเดือน+ค่าอื่นๆ) <sup>*</sup>
+            </p>
+            <div>
+              <select>
+                  <option value='01' selected='selected'>1-5,999</option>
+                  <option value='02' selected='selected'>6,000-6,999</option>
+                  <option value='03' selected='selected'>7,000-7,999</option>
+                  <option value='04' selected='selected'>8,000-8,999</option>
+                  <option value='05' selected='selected'>9,000-9,999</option>
+                  <option value='06' selected='selected'>10,000-10,999</option>
+                  <option value='07' selected='selected'>11,000-11,999</option>
+                  <option value='08' selected='selected'>12,000-12,999</option>
+                  <option value='09' selected='selected'>13,000-13,999</option>
+                  <option value='10' selected='selected'>14,000-14,999</option>
+                  <option value='11' selected='selected'>15,000-15,999</option>
+                  <option value='12' selected='selected'>16,000-16,999</option>
+                  <option value='13' selected='selected'>17,000-17,999</option>
+                  <option value='14' selected='selected'>18,000-18,999</option>
+                  <option value='15' selected='selected'>19,000-19,999</option>
+                  <option value='16' selected='selected'>20,000-24,999</option>
+                  <option value='17' selected='selected'>25,000-29,999</option>
+                  <option value='18' selected='selected'>30,000+</option>
+                </select>
+              </div>
             </div>
           </fieldset>
         </form>
