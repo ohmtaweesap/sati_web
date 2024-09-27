@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Validation from '../elements/InputValidation'
+import Validation from '../elements/js/InputValidation'
 
 
 

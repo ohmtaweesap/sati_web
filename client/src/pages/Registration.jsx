@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Radio, Flex } from 'antd';
 import PersonalLoan from '../features/PersonalLoan'
+import LandLoan from '../features/LandLoan'
 import '../App.css';
 
 const Registration = () => {
@@ -23,7 +24,7 @@ const Registration = () => {
       setForm(<PersonalLoan/>)
     }
     else {
-      setForm(null);
+      setForm(<LandLoan/>);
     }
   }, [value]);
 

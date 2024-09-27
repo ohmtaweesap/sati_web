@@ -1,17 +1,21 @@
 import { useState, createElement } from 'react';
 import provinceData from "../database/provinces.json";
+import umphureData from "../database/umphures.json"
 
-const PersonalLoan = () => {
+const LandLoan = () => {
 
   const [title, setTitle] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [thaiIdNumber, setThaiIdNumber] = useState("");
+  const [provinceId, setProvinceId] = useState("");
+  const [umphure, setUmphure] = useState([]);
+  const [umphureId, setUmphureId] = useState("");
 
 
   const initDay = () => {
-    var html = <option value='' selected='selected'>โปรดระบุ</option>;
+    var html = <option value='' selected='selected'>วัน</option>;
     const item = [html];
 
     for (let i = 1; i <= 31; i++){
@@ -21,7 +25,7 @@ const PersonalLoan = () => {
   }
 
   const initMonth = () => {
-    var html = <option value='' selected='selected'>โปรดระบุ</option>;
+    var html = <option value='' selected='selected'>เดือน</option>;
     const item = [html];
 
     for (let i = 1; i <= 12; i++){
@@ -35,7 +39,7 @@ const PersonalLoan = () => {
     var thaiYear = date.getFullYear() + 543;
     var maxAge = thaiYear - 60;
     var minAge = thaiYear - 20;
-    var html = <option value='' selected='selected'>โปรดระบุ</option>;
+    var html = <option value='' selected='selected'>ปี</option>;
     const item = [html];
 
     for (let i = maxAge; i <= minAge; i++){
@@ -44,36 +48,14 @@ const PersonalLoan = () => {
     return item;
   };
 
-  const initWorkYear = () => {
-    var html = <option value='' selected='selected'>โปรดระบุ</option>;
-    const item = [html];
-
-    for (let i = 1; i <= 40; i++){
-      item.push(<option value={i}>{i}</option>)
-    };
-    return item;
-  }
-
-  const initWorkMonth = () => {
-    var html = <option value='' selected='selected'>โปรดระบุ</option>;
-    const item = [html];
-
-    for (let i = 0; i <= 11; i++){
-      item.push(<option value={i}>{i}</option>)
-    };
-    return item;
-  }
-
-  const initWorkSalary = () => {
-    var html = <option value='' selected='selected'>โปรดระบุ</option>;
-    const item = [html];
-
-    for (let i = 0; i <= 11; i++){
-      item.push(<option value={i}>{i}</option>)
-    };
-    return item;
-  }
-
+  const handleProvince = (e) => {
+    const getProvinceId = e.target.value;
+    const getUmphureData = umphureData.filter(umphure => umphure.province_id === Number(getProvinceId));
+    setUmphure(getUmphureData);
+    setProvinceId(getProvinceId);
+    console.log("prvince id: "+getProvinceId)
+    console.log("umphure data: "+getUmphureData);
+  };
 
   return (
       <div className="App">
@@ -81,11 +63,12 @@ const PersonalLoan = () => {
           <fieldset>
             <div className='Field'>
               <div className='FieldError'>
-                <p>*สำหรับพนักงานบริษัทเอกชนและอาศัยหรือทำงานอยู่ในจังหวัดระยอง เท่านั้น</p>
+                <p>*สำหรับผู้จำนำที่มีทะเบียนบ้านอยู่ในจังหวัดระยอง เท่านั้น</p>
+                <p>**ที่ดินที่จำนำไม่จำเป็นต้องอยู่ในจังหวัดระยอง</p>
               </div>
             </div>
             <div className='borrower'>
-                <h3>ผู้กู้ 1</h3>
+                <h3>ผู้จำนำ</h3>
             </div>
             <div className='Field'>
               <p>
@@ -152,7 +135,7 @@ const PersonalLoan = () => {
               </div>
             </div>
             <div className='Field'>
-              <p>จังหวัดที่อยู่ปัจจุบัน:<sup>*</sup></p>
+              <p>จังหวัดที่ตามทะเบียนบ้าน:<sup>*</sup></p>
               <div className='Input-padding flex'>
                 <select name='province'>
                   <option value="" selected='selected'>โปรดระบุ</option>
@@ -165,49 +148,27 @@ const PersonalLoan = () => {
               </div>
             </div>
             <div className='Field'>
-              <p>
-                อายุงาน (งานปัจจุบัน) <sup>*</sup>
-              </p>
-              <div className='Input-padding flex'>
-                <div className='Row'>
-                  <label> ปี: </label>
-                  <select name="workYear-select" id="workYear-select">
-                    {initWorkYear()}
-                  </select>
-                  <p>/</p>
-                  <label> เดือน: </label>
-                  <select name="workMonth-select" id="workMonth-select">
-                    {initWorkMonth()}
-                  </select>
+              <p>ข้อมูลที่ดินที่นำมาจำนำ:<sup>*</sup></p>
+                <div className='Input-padding flex'>
+                    <div className='Row'>
+                        <select className='select-province' name='province' onChange={(e)=>handleProvince(e)}>
+                            <option value="" selected='selected'>จังหวัด</option>
+                            {
+                                provinceData.map((getProvince, index)=>(
+                                <option value={getProvince.id} key={index}>{getProvince.name_th}</option>
+                                ))
+                            }
+                        </select>
+                        <select className='select-province' name='umphure' onChange={ (e) => setUmphureId(e.target.value)}>
+                            <option value="" selected='selected'>อำเภอ</option>
+                            {
+                                umphure.map((getUmphure, index)=>(
+                                <option value={getUmphure.id} key={index}>{getUmphure.name_th}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div>
-            <p>เงินเดือน (ฐานเงินเดือน+ค่าอื่นๆ) <sup>*</sup></p>
-            <div className='Field'>
-              <div className='Input-padding flex'>
-                <select name="salary-select" id="salary-select">
-                    <option value='6000' selected='selected'>1-5,999</option>
-                    <option value='7000'>6,000-6,999</option>
-                    <option value='8000'>7,000-7,999</option>
-                    <option value='9000'>8,000-8,999</option>
-                    <option value='10000'>9,000-9,999</option>
-                    <option value='11000'>10,000-10,999</option>
-                    <option value='12000'>11,000-11,999</option>
-                    <option value='13000'>12,000-12,999</option>
-                    <option value='14000'>13,000-13,999</option>
-                    <option value='15000'>14,000-14,999</option>
-                    <option value='16000'>15,000-15,999</option>
-                    <option value='17000'>16,000-16,999</option>
-                    <option value='18000'>17,000-17,999</option>
-                    <option value='19000'>18,000-18,999</option>
-                    <option value='20000'>19,000-19,999</option>
-                    <option value='25000'>20,000-24,999</option>
-                    <option value='30000'>25,000-29,999</option>
-                    <option value='30001'>30,000 ขึ้นไป</option>
-                  </select>
-                </div>
-              </div>
             </div>
           </fieldset>
         </form>
@@ -215,4 +176,4 @@ const PersonalLoan = () => {
   )
 }
 
-export default PersonalLoan
+export default LandLoan

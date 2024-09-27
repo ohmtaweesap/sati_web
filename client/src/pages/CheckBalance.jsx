@@ -1,7 +1,6 @@
 import { useLocation, Link } from "react-router-dom"
 import axios from "axios";
 import { useState, useMemo } from "react";
-import "../elements/custom.css"
 
 
 function CheckBalance(){
