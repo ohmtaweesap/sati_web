@@ -4,6 +4,10 @@
   padding: 2rem;
 }
 
+p {
+  margin-bottom: 0.5rem;
+}
+
 h2 {
   text-align: center;
 }
@@ -15,7 +19,7 @@ h3 {
 .App {
   display: flex;
   flex: 1;
-  height: 100vh;
+  height: 100%;
   justify-content: center;
 }
 
@@ -99,8 +103,43 @@ option {
 .flex {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .select-province {
   width: 50%;
+}
+
+.default-option {
+  color:#999999;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.submit-button-div {
+padding: 10px;
+padding-left: 40%;
+padding-right: 40%;
+}
+
+
+.submit-button {
+  background-color: #007BFF; /* Blue background */
+  color: white;              /* White text */
+  border: none;              /* No border */
+  padding: 10px 20px;       /* Padding around the text */
+  text-align: center;        /* Center text */
+  text-decoration: none;      /* No underline */
+  display: inline-block;      /* Inline-block to allow padding */
+  font-size: 16px;           /* Font size */
+  margin: 4px 2px;           /* Margin around the button */
+  cursor: pointer;           /* Pointer cursor on hover */
+  border-radius: 5px;        /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.submit-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }

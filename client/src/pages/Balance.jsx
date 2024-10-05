@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Validation from '../elements/js/InputValidation'
+import { checkBalanceValidation } from '../elements/js/InputValidation'
 
 
 
@@ -17,12 +17,13 @@ function Balance() {
     const [errors, setErrors] = useState({})
 
     const handleInput = (event) => {
-        setValues(prev=> ({...prev, [event.target.name]: [event.target.value]}))
-    }
+        setValues(prev=> ({...prev, [event.target.name]: [event.target.value]}));
+        console.log(values);
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setErrors(Validation(values));
+        setErrors(checkBalanceValidation(values));
         
     }
 
