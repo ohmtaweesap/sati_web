@@ -1,7 +1,6 @@
 import { useState, createElement } from 'react';
 import provinceData from "../database/provinces.json";
 import umphureData from "../database/umphures.json"
-import { Button } from "antd";
 import { PersonalLoanValidation } from '../elements/js/InputValidation';
 
 const PersonalLoan = () => {
@@ -125,7 +124,7 @@ const PersonalLoan = () => {
               </div>
             </div>
             <div className='borrower'>
-                <h3>ผู้จำนำ</h3>
+                <h3>ผู้กู้ 1</h3>
             </div>
             <div className='Field'>
               <p>
