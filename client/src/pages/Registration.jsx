@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Radio, Flex } from 'antd';
 import PersonalLoan from '../features/PersonalLoan'
 import LandLoan from '../features/LandLoan'
 import '../App.css';
@@ -12,6 +11,7 @@ const Registration = () => {
 
 
   const onChange = (e) => {
+    console.log(value)
     setValue(e.target.value);
   };
 
@@ -20,39 +20,37 @@ const Registration = () => {
     if (value === 0){
       setForm(null);
     }
-    else if (value === 1){
+    else if (value === '1'){
       setForm(<PersonalLoan/>)
     }
-    else {
+    else if (value === '2'){
       setForm(<LandLoan/>);
     }
   }, [value]);
 
   return (
     <>
-      <section className='header-padding' id="header">
-        <div>
-          <Flex gap="middle" vertical align={'center'}>
-            <fieldset>
-              <Flex gap="middle" vertical align={'center'}>
-                <h1 pa>สมัครสินเชื่อ</h1>
-                <div>
-                  <legend>เลือกรูปแบบสินเชื่อ <sup>*</sup></legend>
-                    <Radio.Group onChange={onChange} value={value}>
-                      <Radio value={1}>สินเชื่อส่วนบุคคล (กู้ร่วม)</Radio>
-                      <Radio value={2}>จำนำโฉนดที่ดิน</Radio>
-                    </Radio.Group>
-                </div>
-              </Flex>
-            </fieldset>
-          </Flex>
+      <div className='flex flex-col items-center max-h-full'>
+        <div className='flex flex-col items-center w-[500px] mb-5 rounded-xl bg-gray-400'>
+          <form>
+            <h1 className='flex flex-col items-center text-3xl underline pb-4 m-3'>สมัครสินเชื่อ</h1>
+            <h2 className='text-xl'>เลือกรูปแบบสินเชื่อ <sup className='text-red-600'>*</sup></h2>
+            <div className='flex flex-row'>
+              <div className='flex flex-row p-1 m-1'>
+                <input className='mr-1' type="radio" id="personalLoan" value={1} checked={value === '1'} onChange={onChange}/>
+                <label htmlFor="personalLoan">สินเชื่อส่วนบุคคล (กู้ร่วม)</label>
+              </div>
+              <div className='flex flex-row p-1 m-1'>
+                <input className='mr-1' type="radio" id="landLoan" value={2} checked={value === '2'} onChange={onChange}/>
+                <label htmlFor="landLoan">จำนำโฉนดที่ดิน</label>
+              </div>
+            </div>
+          </form>
         </div>
-      </section>
-      <section id="body">
-        <div>
+        <div className='w-[500px] rounded-xl bg-gray-400 p-3'>
           {form}
         </div>
-      </section>
+      </div>
     </>
   )
 }

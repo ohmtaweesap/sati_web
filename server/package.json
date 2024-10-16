@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "nodemon server.js",
-    "start": "node --env-file .env.production server.js",
-    "dev": "nodemon --env-file .env.development server.js "
+    "dev": "nodemon --env-file .env.development server.js ",
+    "start": "node --env-file .env.production server.js"
   },
   "keywords": [],
   "author": "",

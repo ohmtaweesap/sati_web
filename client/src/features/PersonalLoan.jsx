@@ -271,7 +271,7 @@ const PersonalLoan = () => {
             </div>
           </fieldset>
           <div className='flex submit-button-div'>
-            <button class="submit-button">Submit</button>
+            <button className="submit-button">Submit</button>
           </div>
         </form>
       </div>

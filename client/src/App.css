@@ -1,10 +1,4 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-p {
+/* p {
   margin-bottom: 0.5rem;
 }
 
@@ -100,13 +94,13 @@ option {
   padding-inline: 2%;
 }
 
-.flex {
+/* .flex {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
+} */
 
-.select-province {
+/* .select-province {
   width: 50%;
 }
 
@@ -122,24 +116,24 @@ option {
 padding: 10px;
 padding-left: 40%;
 padding-right: 40%;
-}
+} */
 
 
-.submit-button {
-  background-color: #007BFF; /* Blue background */
-  color: white;              /* White text */
-  border: none;              /* No border */
-  padding: 10px 20px;       /* Padding around the text */
-  text-align: center;        /* Center text */
-  text-decoration: none;      /* No underline */
-  display: inline-block;      /* Inline-block to allow padding */
-  font-size: 16px;           /* Font size */
-  margin: 4px 2px;           /* Margin around the button */
-  cursor: pointer;           /* Pointer cursor on hover */
-  border-radius: 5px;        /* Rounded corners */
-  transition: background-color 0.3s; /* Smooth transition */
-}
+/* .submit-button {
+  background-color: #007BFF;
+  color: white;             
+  border: none;             
+  padding: 10px 20px;      
+  text-align: center;       
+  text-decoration: none;      
+  display: inline-block;      
+  font-size: 16px;          
+  margin: 4px 2px;          
+  cursor: pointer;           
+  border-radius: 5px;        
+  transition: background-color 0.3s;
+} */
 
-.submit-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-}
+/* .submit-button:hover {
+  background-color: #0056b3;
+} */
