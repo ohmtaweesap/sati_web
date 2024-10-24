@@ -115,7 +115,7 @@ const PersonalLoan = () => {
   }
 
   return (
-      <div className="App">
+      <div className='w-[500px] rounded-xl bg-gray-400 p-3'>
         <form onSubmit={handleSubmit}>
           <fieldset>
             <div className='Field'>

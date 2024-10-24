@@ -30,8 +30,8 @@ const Registration = () => {
 
   return (
     <>
-      <div className='flex flex-col items-center max-h-full'>
-        <div className='flex flex-col items-center w-[500px] mb-5 rounded-xl bg-gray-400'>
+      <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center w-[500px] mb-5 rounded-xl bg-slate-300'>
           <form>
             <h1 className='flex flex-col items-center text-3xl underline pb-4 m-3'>สมัครสินเชื่อ</h1>
             <h2 className='text-xl'>เลือกรูปแบบสินเชื่อ <sup className='text-red-600'>*</sup></h2>
@@ -47,7 +47,7 @@ const Registration = () => {
             </div>
           </form>
         </div>
-        <div className='w-[500px] rounded-xl bg-gray-400 p-3'>
+        <div className=''>
           {form}
         </div>
       </div>
