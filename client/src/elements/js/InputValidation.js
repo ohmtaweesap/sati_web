@@ -1,3 +1,5 @@
+import isValidThaiID from 'thai-id-validator';
+
 export const checkBalanceValidation = (values) => {
 
     let error = {}
@@ -32,7 +34,6 @@ export const checkBalanceValidation = (values) => {
 export const LandDeedValidation = (values) => {
 
     let error = {}
-    const thaiId_pattern = /^\d{13}$/
     const telNo_pattern = /^\d{10}$/
 
     if(values.title === ""){
@@ -59,8 +60,8 @@ export const LandDeedValidation = (values) => {
     if(values.thaiId === ""){
         error.thaiId = "กรุณาใส่เลขบัตรประชาชน"
     }
-    else if(!thaiId_pattern.test(values.thaiId)){
-        error.thaiId = "เลขบัตรประชาชนไม่ถูกต้อง ต้องเป็นตัวเลข 13 หลักเท่านั้น"
+    else if(!isValidThaiID(values.thaiId)){
+        error.thaiId = "เลขบัตรประชาชนไม่ถูกต้อง"
     }
     else{
         error.thaiId = ""
@@ -83,25 +84,18 @@ export const LandDeedValidation = (values) => {
         error.birth = ""
     }
 
-    if(values.provinceHome === ""){
-        error.provinceHome = "กรุณาเลือกจังหวัดทะเบียนบ้าน"
+    if(values.provinceCurrent === "" || values.umphureCurrent === "" || values.homeNo === ""){
+        error.addressCurrent = "กรุณาใส่ข้อมูลที่อยู่ปัจจุบันให้ครบถ่วน"
     }
     else{
-        error.provinceHome = ""
-    }
-
-    if(values.provinceCurrent === "" || values.umphureCurrent === ""){
-        error.provinceCurrent = "กรุณาเลือกจังหวัดและอำเภอที่อยู่ปัจจุบัน"
-    }
-    else{
-        error.provinceLanddeed = ""
+        error.addressCurrent = ""
     }
 
     if(values.provinceLanddeed === "" || values.umphureLanddeed === "" || values.landNumber === ""){
-        error.provinceLanddeed = "กรุณาเลือกจังหวัดและอำเภอและใส่เลขที่โฉนด"
+        error.addressLanddeed = "กรุณาใส่ข้อมูลของโฉนดให้ครบถ่วน"
     }
     else{
-        error.provinceLanddeed = ""
+        error.addressLanddeed = ""
     }
 
     console.log(values)
@@ -112,7 +106,6 @@ export const LandDeedValidation = (values) => {
 export const PersonalLoanValidation = (values) => {
 
     let error = {}
-    const thaiId_pattern = /^\d{13}$/
     const telNo_pattern = /^\d{10}$/
 
     if(values.title === ""){
@@ -139,8 +132,8 @@ export const PersonalLoanValidation = (values) => {
     if(values.thaiId === ""){
         error.thaiId = "กรุณาใส่เลขบัตรประชาชน"
     }
-    else if(!thaiId_pattern.test(values.thaiId)){
-        error.thaiId = "เลขบัตรประชาชนไม่ถูกต้อง ต้องเป็นตัวเลข 13 หลักเท่านั้น"
+    else if(!isValidThaiID(values.thaiId)){
+        error.thaiId = "เลขบัตรประชาชนไม่ถูกต้อง"
     }
     else{
         error.thaiId = ""
@@ -163,11 +156,11 @@ export const PersonalLoanValidation = (values) => {
         error.birth = ""
     }
 
-    if(values.provinceCurrent === "" || values.umphureCurrent === ""){
-        error.provinceCurrent = "กรุณาเลือกจังหวัดและอำเภอที่อยู่ปัจจุบัน"
+    if(values.provinceCurrent === "" || values.umphureCurrent === "" || values.homeNo === ""){
+        error.addressCurrent = "กรุณาใส่ข้อมูลที่อยู่ปัจจุบันให้ครบถ่วน"
     }
     else{
-        error.provinceCurrent = ""
+        error.addressCurrent = ""
     }
 
     if(values.workYear === "" || values.workMonth === ""){

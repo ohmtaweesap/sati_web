@@ -30,12 +30,12 @@ const Registration = () => {
 
   return (
     <>
-      <div className='flex flex-col items-center'>
-        <div className='flex flex-col items-center w-[500px] mb-5 rounded-xl bg-slate-300'>
-          <form>
-            <h1 className='flex flex-col items-center text-3xl underline pb-4 m-3'>สมัครสินเชื่อ</h1>
-            <h2 className='text-xl'>เลือกรูปแบบสินเชื่อ <sup className='text-red-600'>*</sup></h2>
-            <div className='flex flex-row'>
+      <div className='flex justify-center'>
+        <div className='flex max-w-md flex-col m-3 items-center'>
+          <div className='mb-5 w-full rounded-xl bg-slate-300'>
+            <h1 className='flex justify-center text-3xl underline p-5'>สมัครสินเชื่อ</h1>
+            <h2 className='flex justify-center items-center text-xl'>เลือกรูปแบบสินเชื่อ <sup className='text-red-600'>*</sup></h2>
+            <div className='flex flex-row justify-center'>
               <div className='flex flex-row p-1 m-1'>
                 <input className='mr-1' type="radio" id="personalLoan" value={1} checked={value === '1'} onChange={onChange}/>
                 <label htmlFor="personalLoan">สินเชื่อส่วนบุคคล (กู้ร่วม)</label>
@@ -45,10 +45,10 @@ const Registration = () => {
                 <label htmlFor="landLoan">จำนำโฉนดที่ดิน</label>
               </div>
             </div>
-          </form>
-        </div>
-        <div className=''>
-          {form}
+          </div>
+          <div className='w-full max-w-full'>
+            {form}
+          </div>
         </div>
       </div>
     </>
