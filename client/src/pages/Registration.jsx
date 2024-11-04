@@ -31,7 +31,7 @@ const Registration = () => {
   return (
     <>
       <div className='flex justify-center'>
-        <div className='flex max-w-md flex-col m-3 items-center'>
+        <div className='flex w-full max-w-md flex-col m-3 items-center'>
           <div className='mb-5 w-full rounded-xl bg-slate-300'>
             <h1 className='flex justify-center text-3xl underline p-5'>สมัครสินเชื่อ</h1>
             <h2 className='flex justify-center items-center text-xl'>เลือกรูปแบบสินเชื่อ <sup className='text-red-600'>*</sup></h2>

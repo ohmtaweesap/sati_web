@@ -313,7 +313,7 @@ const LandLoan = () => {
           </div>
         </div>
         <div></div>
-        <div className='flex justify-center rounded transition delay-90 bg-blue-500 hover:bg-blue-400 p-2 mx-5 text-white'>
+        <div className='flex justify-center rounded transition delay-90 bg-blue-500 hover:bg-blue-400 h-10 mx-5 text-white'>
           <button className='w-full'>Submit</button>
         </div>
       </form>

@@ -108,66 +108,80 @@ export const PersonalLoanValidation = (values) => {
     let error = {}
     const telNo_pattern = /^\d{10}$/
 
-    if(values.title === ""){
-        error.title = "กรุณาเลือกคำนำหน้า"
+    if(values.title1 === ""){
+        error.title1 = "กรุณาเลือกคำนำหน้า"
     }
     else{
-        error.title = ""
+        error.title1 = ""
     }
 
-    if(values.firstName === ""){
-        error.firstName = "กรุณาใส่ชื่อ"
+    if(values.firstName1 === ""){
+        error.firstName1 = "กรุณาใส่ชื่อ"
     }
     else{
-        error.firstName = ""
+        error.firstName1 = ""
     }
 
-    if(values.lastName === ""){
-        error.lastName = "กรุณาใส่นามสกุล"
+    if(values.lastName1 === ""){
+        error.lastName1 = "กรุณาใส่นามสกุล"
     }
     else{
-        error.lastName = ""
+        error.lastName1 = ""
     }
 
-    if(values.thaiId === ""){
-        error.thaiId = "กรุณาใส่เลขบัตรประชาชน"
+    if(values.thaiId1 === ""){
+        error.thaiId1 = "กรุณาใส่เลขบัตรประชาชน"
     }
-    else if(!isValidThaiID(values.thaiId)){
-        error.thaiId = "เลขบัตรประชาชนไม่ถูกต้อง"
+    else if(!isValidThaiID(values.thaiId1)){
+        error.thaiId1 = "เลขบัตรประชาชนไม่ถูกต้อง"
     }
     else{
-        error.thaiId = ""
+        error.thaiId1 = ""
     }
 
-    if(values.telNo === ""){
-        error.telNo = "กรุณาใส่หมายเลขโทรศัพย์"
+    if(values.telNo1 === ""){
+        error.telNo1 = "กรุณาใส่หมายเลขโทรศัพย์"
     }
-    else if(!telNo_pattern.test(values.telNo)){
-        error.telNo = "หมายเลขโทรศัพย์ไม่ถูกต้อง ต้องเป็นตัวเลขเ 10 หลักเท่านั้น"
+    else if(!telNo_pattern.test(values.telNo1)){
+        error.telNo1 = "หมายเลขโทรศัพย์ไม่ถูกต้อง ต้องเป็นตัวเลขเ 10 หลักเท่านั้น"
     }
     else{
-        error.telNo = ""
+        error.telNo1 = ""
     }
 
-    if(values.birthDay === "" || values.birthMonth === "" || values.birthYear === ""){
-        error.birth = "กรุณาใส่วันเดือนปีเกิด ให้ถูกต้อง"
+    if(values.birthDay1 === "" || values.birthMonth1 === "" || values.birthYear1 === ""){
+        error.birth1 = "กรุณาใส่วันเดือนปีเกิด ให้ถูกต้อง"
     }
     else{
-        error.birth = ""
+        error.birth1 = ""
     }
 
-    if(values.provinceCurrent === "" || values.umphureCurrent === "" || values.homeNo === ""){
-        error.addressCurrent = "กรุณาใส่ข้อมูลที่อยู่ปัจจุบันให้ครบถ่วน"
+    if(values.provinceCurrent1 === "" || values.umphureCurrent1 === "" || values.homeNo1 === "" || values.tambonCurrent1 === ""){
+        error.addressCurrent1 = "กรุณาใส่ข้อมูลที่อยู่ปัจจุบันให้ครบถ่วน"
     }
     else{
-        error.addressCurrent = ""
+        error.addressCurrent1 = ""
     }
 
-    if(values.workYear === "" || values.workMonth === ""){
-        error.workYear = "กรุณาระบุอายุงาน"
+    if(values.workYear1 === "" || values.workMonth1 === ""){
+        error.workPeriod1 = "กรุณาระบุอายุงาน"
     }
     else{
-        error.workYear = ""
+        error.workPeriod1 = ""
+    }
+
+    if(values.workName1 === ""){
+        error.workName1 = "กรุณาใส่ชื่อบริษัท"
+    }
+    else{
+        error.workName1 = ""
+    }
+
+    if(values.workNo1 === "" || values.provinceWork1 === "" || values.umphureWork1 === "" || values.tambonWork1 === ""){
+        error.workAddress1 = "กรุณาใส่ที่อยู่ที่ทำงานให้ครบถ่วน"
+    }
+    else{
+        error.workAddress1 = ""
     }
 
     console.log(values)
